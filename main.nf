@@ -32,15 +32,16 @@ if (params.genome_build == "human_hg19_GRCh37_87"){
 params.DOWNDIR = (params.DOWNDIR) ? params.DOWNDIR : ""
 if ($HOSTNAME == "default"){
     _shareGen = "${params.DOWNDIR}/cellranger"
-    $SINGULARITY_IMAGE = "https://galaxyweb.umassmed.edu/pub/dolphinnext_singularity/UMMS-Biocore-singularity-cellranger-v2.simg"
-    $SINGULARITY_OPTIONS = "--bind /mnt"
+    $SINGULARITY_IMAGE = "https://galaxyweb.umassmed.edu/pub/dolphinnext_singularity/UMMS-Biocore-singularity-cellranger-v3.simg"
     $MEMORY = 32
 }
+
+
 
 //* platform
 if ($HOSTNAME == "ghpcc06.umassrc.org"){
     _shareGen = "/share/data/umw_biocore/genome_data/cellranger"
-    $SINGULARITY_IMAGE = "/project/umw_biocore/singularity/UMMS-Biocore-singularity-cellranger-v2.simg"
+    $SINGULARITY_IMAGE = "/project/umw_biocore/singularity/UMMS-Biocore-singularity-cellranger-v3.simg"
     $SINGULARITY_OPTIONS = "--bind /project --bind /share --bind /nl"
     $TIME = 240
     $CPU  = 1
@@ -50,10 +51,10 @@ if ($HOSTNAME == "ghpcc06.umassrc.org"){
 //* platform
 if (params.genome_build && $HOSTNAME){
     params.transcriptome ="${_shareGen}/${_species}/${_build}/${_build}"
-    params.cellranger_path = "/usr/bin/cellranger-3.1.0/cellranger"
+    params.cellranger_path = "cellranger"
 }
 if ($HOSTNAME){
-    params.cellranger_path = "/usr/bin/cellranger-3.1.0/cellranger"
+    params.cellranger_path = "cellranger"
 }
 
 //* autofill
