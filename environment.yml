@@ -5,6 +5,8 @@ channels:
   - conda-forge
   - bioconda
   - defaults
+  - bih-cubi
 dependencies:
   - fastqc=0.11.8
   - multiqc=1.7
+  - bcl2fastq2=2.20.0.422
