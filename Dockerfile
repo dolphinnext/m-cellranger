@@ -37,8 +37,8 @@ RUN conda update -n base -c defaults conda
 COPY environment.yml /
 RUN conda env create -f /environment.yml && conda clean -a
 RUN mkdir -p /project /nl /mnt /share
+RUN git clone https://github.com/dolphinnext/tools /usr/local/bin/dolphin-tools
 ENV PATH /opt/conda/envs/dolphinnext/bin:/usr/local/bin/dolphin-tools/:$PATH
-
 
  
 ## Cell Ranger ##
