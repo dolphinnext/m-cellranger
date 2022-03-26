@@ -40,6 +40,7 @@ RUN mkdir -p /project /nl /mnt /share
 RUN git clone https://github.com/dolphinnext/tools /usr/local/bin/dolphin-tools
 ENV PATH /opt/conda/envs/dolphinnext/bin:/usr/local/bin/dolphin-tools/:$PATH
 
+RUN pip install "multiqc==1.7"
  
 ## Cell Ranger ##
 RUN cd /usr/bin && \ 
