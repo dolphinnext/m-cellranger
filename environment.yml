@@ -12,4 +12,8 @@ dependencies:
   - samtools=1.3
   - igvtools=2.5.3
   - bedtools=2.30.0
-
+  - biopython
+  - python=3.8
+  - requests
+  - multiqc
+  - 10x_bamtofastq=1.4.1
