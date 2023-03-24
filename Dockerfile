@@ -32,7 +32,7 @@ RUN aws --version
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
+    
 RUN conda update -n base -c defaults conda
 COPY environment.yml /
 RUN conda env create -f /environment.yml && conda clean -a
@@ -40,14 +40,14 @@ RUN mkdir -p /project /nl /mnt /share
 RUN git clone https://github.com/dolphinnext/tools /usr/local/bin/dolphin-tools
 ENV PATH /opt/conda/envs/dolphinnext/bin:/usr/local/bin/dolphin-tools/:$PATH
 
- 
+
 ## Cell Ranger ##
-RUN cd /usr/bin && \ 
-    wget https://galaxyweb.umassmed.edu/pub/software/cellranger-6.1.2.tar.gz && \ 
-    tar -xzvf cellranger-6.1.2.tar.gz && \
-    wget https://galaxyweb.umassmed.edu/pub/software/cellranger-atac-2.0.0.tar.gz && \ 
+RUN cd /usr/bin && \
+    wget https://galaxyweb.umassmed.edu/pub/software/cellranger-7.0.0.tar.gz && \
+    tar -xzvf cellranger-7.0.0.tar.gz && \
+    wget https://galaxyweb.umassmed.edu/pub/software/cellranger-atac-2.0.0.tar.gz && \
     tar -xzvf cellranger-atac-2.0.0.tar.gz
-ENV PATH /usr/bin/cellranger-6.1.2:/usr/bin/cellranger-atac-2.0.0:$PATH
+ENV PATH /usr/bin/cellranger-7.0.0:/usr/bin/cellranger-atac-2.0.0:$PATH
 
 RUN pip install wheel
 RUN pip install pandas
